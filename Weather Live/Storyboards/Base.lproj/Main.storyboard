@@ -12,7 +12,7 @@
         <!--WeatherLive-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Weather_Live" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherDisplayViewController" customModule="Weather_Live" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-30º" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm9-WP-FKT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-30º" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm9-WP-FKT">
                                         <rect key="frame" x="143.33333333333334" y="172" width="95.666666666666657" height="172"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <nil key="textColor"/>
@@ -94,6 +94,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="currentTempLabel" destination="hm9-WP-FKT" id="Gwk-y8-9gB"/>
+                        <outlet property="highTempLabel" destination="ad0-Cy-gOU" id="sXN-ov-dUl"/>
+                        <outlet property="iconLabel" destination="IHA-io-YkC" id="Ohx-mU-IIe"/>
+                        <outlet property="locationLabel" destination="yv4-oa-Onb" id="tLR-H0-pCn"/>
+                        <outlet property="lowTempLabel" destination="4Y6-gH-3ms" id="DCQ-cz-2Jv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,7 +109,7 @@
         <!--Change Location-->
         <scene sceneID="crl-Ew-NuS">
             <objects>
-                <viewController title="Change Location" id="R80-Jp-Yi1" sceneMemberID="viewController">
+                <viewController title="Change Location" id="R80-Jp-Yi1" customClass="LocatinSelectorViewController" customModule="Weather_Live" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uwd-2l-TPU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,6 +127,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v0T-eO-L7N"/>
                     </view>
+                    <connections>
+                        <outlet property="locationSearchBar" destination="cv2-sQ-P2t" id="pjL-bI-ASC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPe-er-THk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
