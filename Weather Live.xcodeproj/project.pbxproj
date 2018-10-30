@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DCABD61A9BA6B99FF84B1185 /* Pods_Weather_Live.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C0C01C7586267323E078B1 /* Pods_Weather_Live.framework */; };
+		F21A66F421874D93003AA195 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A66F321874D93003AA195 /* APIManager.swift */; };
 		F23E4367217F6C6D00A07672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23E4366217F6C6D00A07672 /* AppDelegate.swift */; };
 		F23E4369217F6C6D00A07672 /* WeatherDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23E4368217F6C6D00A07672 /* WeatherDisplayViewController.swift */; };
 		F23E436C217F6C6D00A07672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23E436A217F6C6D00A07672 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		03EB2655420F6AB1E0271AFE /* Pods-Weather Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather Live.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather Live/Pods-Weather Live.debug.xcconfig"; sourceTree = "<group>"; };
 		54D3AB1B7BA2BA0FEEC4AB04 /* Pods-Weather Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather Live.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weather Live/Pods-Weather Live.release.xcconfig"; sourceTree = "<group>"; };
 		57C0C01C7586267323E078B1 /* Pods_Weather_Live.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather_Live.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F21A66F321874D93003AA195 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		F23E4363217F6C6D00A07672 /* Weather Live.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Live.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23E4366217F6C6D00A07672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F23E4368217F6C6D00A07672 /* WeatherDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F21A66F221874D64003AA195 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				F2E9E9E72182370A00EF51DC /* APIKeys.swift */,
+				F21A66F321874D93003AA195 /* APIManager.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		F23E435A217F6C6D00A07672 = {
 			isa = PBXGroup;
 			children = (
@@ -86,13 +97,13 @@
 		F23E4365217F6C6D00A07672 /* Weather Live */ = {
 			isa = PBXGroup;
 			children = (
+				F21A66F221874D64003AA195 /* New Group */,
 				F28D3CF321838F2D000E3607 /* Data Models */,
 				F28D3CF221838EDB000E3607 /* ViewControllers */,
 				F28D3CF121838EB2000E3607 /* Storyboards */,
 				F23E4366217F6C6D00A07672 /* AppDelegate.swift */,
 				F23E436D217F6C6E00A07672 /* Assets.xcassets */,
 				F23E4372217F6C6E00A07672 /* Info.plist */,
-				F2E9E9E72182370A00EF51DC /* APIKeys.swift */,
 			);
 			path = "Weather Live";
 			sourceTree = "<group>";
@@ -109,8 +120,8 @@
 		F28D3CF221838EDB000E3607 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F28D3CEF2183892E000E3607 /* LocatinSelectorViewController.swift */,
 				F23E4368217F6C6D00A07672 /* WeatherDisplayViewController.swift */,
+				F28D3CEF2183892E000E3607 /* LocatinSelectorViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -244,6 +255,7 @@
 				F2E9E9E82182370A00EF51DC /* APIKeys.swift in Sources */,
 				F23E4369217F6C6D00A07672 /* WeatherDisplayViewController.swift in Sources */,
 				F23E4367217F6C6D00A07672 /* AppDelegate.swift in Sources */,
+				F21A66F421874D93003AA195 /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,7 +50,7 @@ class WeatherData {
         }
     }
     enum WeatherDataKeys: String {
-        case currently = "current"
+        case currently = "currently"
         case temperature = "temperature"
         case icon = "icon"
         case daily = "daily"

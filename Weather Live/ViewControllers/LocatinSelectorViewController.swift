@@ -8,24 +8,69 @@
 
 import UIKit
 
-class LocatinSelectorViewController: UIViewController {
+class LocatinSelectorViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var locationSearchBar: UISearchBar!
+    
+    let apiManager = APIManager()
+    
+    var geocodingData: GeocodingData?
+    var weatherData: WeatherData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        locationSearchBar.delegate = self
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  
+    func handleError() {
+        geocodingData = nil
+        weatherData = nil
     }
-    */
+    func retrieveGeocodingData(searchAddress: String) {
+        apiManager.geocode(address: searchAddress) { (geoCodingData, error) in
+            if let reciecedError = error {
+                print(reciecedError.localizedDescription)
+                self.handleError()
+                return
+            }
+            if let recievedData = self.geocodingData {
+                self.geocodingData = recievedData
+            } else {
+                self.handleError()
+                return
+            }
+        }
+    }
+    func retrieveWeatherData(latitude: Double, longitude: Double) {
+        apiManager.getWeather(latitude: latitude, longitude: longitude) { (weatherData, error) in
+            if let recievedError = error {
+                print(recievedError.localizedDescription)
+                self.handleError()
+                return
+            }
+            
+            if let recievedData = weatherData {
+                self.weatherData = recievedData
+                self.performSegue(withIdentifier: "unwindToWeatherDisplay", sender: self)
+            } else {
+                self.handleError()
+                return
+            }
+        }
+    }
+    
+    func searchBarButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchAddress = searchBar.text?.replacingOccurrences(of: " ", with: "+") else {
+            return
+        }
+        retrieveGeocodingData(searchAddress: searchAddress)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? WeatherDisplayViewController, let retrieveGeocodingData = geocodingData, let retrieveWeatherData = weatherData {
+            destinationVC.displayGeoCodingData = retrieveGeocodingData
+            destinationVC.displayWeatherData = retrieveWeatherData
+        }
+    }
 
 }
