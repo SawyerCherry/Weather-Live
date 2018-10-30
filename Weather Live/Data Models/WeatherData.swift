@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class WeatherData {
     //MARK:- Types
+    // these help access specific conditions from API
     enum Condition: String {
         case clearDay = "clear-day"
         case clearNight = "clear-night"
@@ -22,7 +23,7 @@ class WeatherData {
         case cloudy = "cloudy"
         case partlyCloudyDay = "partly-cloudy-day"
         case partlyCloudyNight = "partly-cloudy-night"
-        
+        // Setting our icon for weather conditions
         var icon: String {
             switch self {
                 //Switch based on the value of the enum
@@ -49,6 +50,7 @@ class WeatherData {
             }
         }
     }
+    // enums are using the keys from the api to display data
     enum WeatherDataKeys: String {
         case currently = "currently"
         case temperature = "temperature"
@@ -68,7 +70,7 @@ class WeatherData {
     
     
     //MARK:- Methods
-    
+    // init the options
     init(temperature: Double, highTemperature: Double, lowTemperature: Double, condition: Condition) {
         self.temperature = temperature
         self.highTemperature = highTemperature
@@ -76,15 +78,19 @@ class WeatherData {
         self.condition = condition
     }
     convenience init?(json: JSON) {
+         // lets the api show current temp in a string
         guard let temperature = json[WeatherDataKeys.currently.rawValue][WeatherDataKeys.temperature.rawValue].double else {
             return nil
         }
+         // lets the api show current high temp in a string
         guard let highTemperature = json[WeatherDataKeys.daily.rawValue][WeatherDataKeys.data.rawValue][0][WeatherDataKeys.temperatureHigh.rawValue].double else {
             return nil
         }
+        // lets the api show current low temp in a string
         guard let lowTemperature = json[WeatherDataKeys.daily.rawValue][WeatherDataKeys.data.rawValue][0][WeatherDataKeys.temperatureLow.rawValue].double else {
             return nil
         }
+        // lets the api show current condition in a string
         guard let conditionString = json[WeatherDataKeys.currently.rawValue][WeatherDataKeys.icon.rawValue].string else {
             return nil
         }
@@ -92,7 +98,9 @@ class WeatherData {
         
         guard let condition = Condition(rawValue: conditionString) else {
             return nil
+            
         }
+        // self.init all of our options on our api to use the guard lets
         self.init(temperature: temperature, highTemperature: highTemperature, lowTemperature: lowTemperature, condition: condition)
     }
 }

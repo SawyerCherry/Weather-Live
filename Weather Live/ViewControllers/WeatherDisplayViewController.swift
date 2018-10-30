@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class WeatherDisplayViewController: UIViewController {
+    // BASIC OUTLETS
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
@@ -19,6 +20,7 @@ class WeatherDisplayViewController: UIViewController {
     
     var displayWeatherData: WeatherData! {
         didSet {
+            // THIS LINKS OUR CURRENT DATA WITH LABELS ON SCREEN
             iconLabel.text = displayWeatherData.condition.icon
             currentTempLabel.text = "\(displayWeatherData.temperature)º"
             highTempLabel.text = "\(displayWeatherData.highTemperature)º"
@@ -69,7 +71,7 @@ class WeatherDisplayViewController: UIViewController {
 //
 //        }
     }
-    
+    // THIS WILL SHOW ALL OF THE THINGS WHEN THE SCREEN IS LOADED IN
     func setUpDefaultUI() {
         locationLabel.text = ""
         iconLabel.text = "⚡️"

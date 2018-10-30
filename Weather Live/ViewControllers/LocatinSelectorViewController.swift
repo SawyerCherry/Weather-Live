@@ -26,7 +26,7 @@ class LocatinSelectorViewController: UIViewController, UISearchBarDelegate {
         geocodingData = nil
         weatherData = nil
     }
-    
+    // THIS RETRIEVES THE GEOCODING ADDRESS AND STRING FORMATS IT
     func retrieveGeocodingData(searchAddress: String) {
         apiManager.geocode(address: searchAddress) { (geoCodingData, error) in
             if let reciecedError = error {
@@ -43,6 +43,7 @@ class LocatinSelectorViewController: UIViewController, UISearchBarDelegate {
             }
         }
     }
+    // THIS RETRIEVES THE WEATHER DATAAND STRING FORMATS IT INTO A DOUBLE
     func retrieveWeatherData(latitude: Double, longitude: Double) {
         apiManager.getWeather(latitude: latitude, longitude: longitude) { (weatherData, error) in
             if let recievedError = error {
@@ -60,14 +61,14 @@ class LocatinSelectorViewController: UIViewController, UISearchBarDelegate {
             }
         }
     }
-    
+    // USES THE  POWERFUL API TO DISPLAY WHEN SEARCH BUTTON IS CLICKED
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchAddress = searchBar.text?.replacingOccurrences(of: " ", with: "+") else {
             return
         }
         retrieveGeocodingData(searchAddress: searchAddress)
     }
-    
+    // THIS WILL OVERRIDE THE DATA AND TIE IT, PREPARES FOR THE SEGUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? WeatherDisplayViewController, let retrieveGeocodingData = geocodingData, let retrieveWeatherData = weatherData {
             destinationVC.displayGeoCodingData = retrieveGeocodingData

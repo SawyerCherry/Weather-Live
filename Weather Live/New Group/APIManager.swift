@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-
+// This class will amnage our API
 class APIManager {
     private let darkSkyURL = "https://api.darksky.net/forecast/"
     private let googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address="
@@ -21,7 +21,7 @@ class APIManager {
         case noResponse
         case invalidData
     }
-    
+    // func will get weather from api using url and keys
     func getWeather(latitude: Double, longitude: Double, onCompletion: @escaping (WeatherData?, Error?) -> Void) {
         
         let url = darkSkyURL + apiKeys.darkSkyKey + "/" + "\(latitude)" + "," + "\(longitude)"
@@ -47,7 +47,7 @@ class APIManager {
     func geocode(address: String, onCompletion: @escaping (GeocodingData?, Error?) -> Void) {
         
         let url  = googleURL + address + "&key=" + apiKeys.googleKey
-        
+        // making a  request
         
         let request = Alamofire.request(url)
         
@@ -57,7 +57,7 @@ class APIManager {
                 let json = JSON(value)
                 
                 print(json)
-                
+               // Going to show error if case failure goes through
                 if let geocodingData = GeocodingData(json: json) {
                     onCompletion(geocodingData, nil)
                 } else {

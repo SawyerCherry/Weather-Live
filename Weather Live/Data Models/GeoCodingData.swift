@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class GeocodingData {
     // These are the keys that we will need to get the correct info from the GeoCoding API
+    
     enum GeoCodingDataKeys: String {
         case results = "results"
         case formattedAddress = "formatted_address"
@@ -40,18 +41,19 @@ class GeocodingData {
         guard let results = json[GeoCodingDataKeys.results.rawValue].array else {
             return nil
         }
-        
+        // IF NONE OF THESE WORK THEN THE PRINTS WILL THEN IT WILL ALL RETURN NIL!!!!!!
         guard let formattedAddress = results[0][GeoCodingDataKeys.formattedAddress.rawValue].string else {
             return nil
         }
-        
+        // UP
         guard let latitude = results[0][GeoCodingDataKeys.geometry.rawValue][GeoCodingDataKeys.location.rawValue][GeoCodingDataKeys.latitude.rawValue].double else {
             return nil
         }
-        
+        // UP
         guard let longitude = results[0][GeoCodingDataKeys.geometry.rawValue][GeoCodingDataKeys.location.rawValue][GeoCodingDataKeys.longitude.rawValue].double else {
                 return nil
         }
+        // INIT ALL OF THE options portrayed in the code IF FAIL RETURN NIL
         self.init(formattedAddress: formattedAddress, latitude: latitude, longitude: longitude)
     }
 }
