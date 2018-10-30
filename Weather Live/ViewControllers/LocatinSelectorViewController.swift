@@ -26,6 +26,7 @@ class LocatinSelectorViewController: UIViewController, UISearchBarDelegate {
         geocodingData = nil
         weatherData = nil
     }
+    
     func retrieveGeocodingData(searchAddress: String) {
         apiManager.geocode(address: searchAddress) { (geoCodingData, error) in
             if let reciecedError = error {
@@ -33,8 +34,9 @@ class LocatinSelectorViewController: UIViewController, UISearchBarDelegate {
                 self.handleError()
                 return
             }
-            if let recievedData = self.geocodingData {
+            if let recievedData = geoCodingData {
                 self.geocodingData = recievedData
+                self.retrieveWeatherData(latitude: recievedData.latitude, longitude: recievedData.longitude)
             } else {
                 self.handleError()
                 return
@@ -59,7 +61,7 @@ class LocatinSelectorViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
-    func searchBarButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchAddress = searchBar.text?.replacingOccurrences(of: " ", with: "+") else {
             return
         }

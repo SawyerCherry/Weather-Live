@@ -73,7 +73,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.82767348780000005" green="0.83315890150000005" blue="0.74070759760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tq4-yv-Ouq" secondAttribute="trailing" constant="16" id="5cE-gH-69G"/>
                             <constraint firstItem="Tq4-yv-Ouq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6Vk-lU-w8I"/>
@@ -89,6 +89,7 @@
                     <navigationItem key="navigationItem" title="WeatherLive" id="SXJ-0G-Wl6">
                         <barButtonItem key="backBarButtonItem" title="WeatherLive" id="x72-VE-A63"/>
                         <barButtonItem key="rightBarButtonItem" title="Change Location" id="HLh-6L-Bl8">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="R80-Jp-Yi1" kind="show" id="xUD-LH-3RD"/>
                             </connections>
@@ -145,7 +146,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="cDN-8c-BO6">
                         <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.82767348780000005" green="0.83315890150000005" blue="0.74070759760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.82767348780000005" green="0.83315890150000005" blue="0.74070759760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -40,34 +40,34 @@ class WeatherDisplayViewController: UIViewController {
         
         setUpDefaultUI()
         
-        let apiManager = APIManager()
-        apiManager.geocode(address: "Glasgow,+Kentucky"){ (data, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            guard let data = data else {
-                return
-            }
-            print(data.formattedAddress)
-            print(data.latitude)
-            print(data.longitude)
-            
-    }
-        apiManager.getWeather(latitude: 36.9958839, longitude: -85.91192149999999) { (data, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            guard let data = data else {
-                return
-            }
-            print(data.temperature)
-            print(data.highTemperature)
-            print(data.lowTemperature)
-            print(data.condition.icon)
-            
-        }
+//        let apiManager = APIManager()
+//        apiManager.geocode(address: "Glasgow,+Kentucky"){ (data, error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            guard let data = data else {
+//                return
+//            }
+//            print(data.formattedAddress)
+//            print(data.latitude)
+//            print(data.longitude)
+//
+//    }
+//        apiManager.getWeather(latitude: 36.9958839, longitude: -85.91192149999999) { (data, error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            guard let data = data else {
+//                return
+//            }
+//            print(data.temperature)
+//            print(data.highTemperature)
+//            print(data.lowTemperature)
+//            print(data.condition.icon)
+//
+//        }
     }
     
     func setUpDefaultUI() {
